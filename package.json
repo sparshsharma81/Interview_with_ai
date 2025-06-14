@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "db:push": "dotenv -e .env.local -- npx prisma db push",
+    "db:generate": "dotenv -e .env.local -- npx prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.21.0",
@@ -48,6 +50,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "autoprefixer": "^10.4.21",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "postcss": "^8.4.31",

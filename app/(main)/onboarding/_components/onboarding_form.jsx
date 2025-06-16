@@ -103,7 +103,7 @@ const OnboardingForm = ({ industries }) => {
                 <SelectTrigger id="industry">
                   <SelectValue placeholder="Select an industry" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-black text-white border border-neutral-800 shadow-lg">
                   <SelectGroup>
                     <SelectLabel>Industries</SelectLabel>
                     {industries.map((ind) => (
@@ -130,7 +130,7 @@ const OnboardingForm = ({ industries }) => {
                   <SelectTrigger id="subIndustry">
                     <SelectValue placeholder="Select your specialization" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-black text-white border border-neutral-800 shadow-lg">
                     <SelectGroup>
                       <SelectLabel>Specializations</SelectLabel>
                       {selectedIndustry?.subIndustries.map((sub) => (

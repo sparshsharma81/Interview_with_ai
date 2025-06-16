@@ -1,0 +1,462 @@
+# SensAI Application Documentation
+
+## Route Structure and Functionality
+
+### Main Routes
+
+1. `/` (Root Route)
+   - File: app/page.js
+   - Purpose: Landing page of the application
+   - Features:
+     * Hero section with application introduction
+     * Features showcase
+     * Call-to-action buttons
+     * Responsive design for all devices
+
+2. `/dashboard`
+   - File: app/(main)/dashboard/page.jsx
+   - Purpose: User's main dashboard
+   - Features:
+     * Overview of user's progress
+     * Quick access to main features
+     * Performance metrics
+     * Recent activity
+
+3. `/onboarding`
+   - File: app/(main)/onboarding/page.jsx
+   - Purpose: New user onboarding process
+   - Features:
+     * Industry selection
+     * Experience level input
+     * Skills assessment
+     * Profile completion
+
+4. `/interview`
+   - File: app/(main)/interview/page.jsx
+   - Purpose: Interview preparation section
+   - Features:
+     * Mock interview sessions
+     * Question bank
+     * Performance tracking
+     * Feedback system
+
+5. `/ai-cover-letter`
+   - File: app/(main)/ai-cover-letter/page.jsx
+   - Purpose: AI-powered cover letter generation
+   - Features:
+     * Cover letter creation
+     * Job description analysis
+     * ATS optimization
+     * Customization options
+
+### Authentication Routes
+
+1. `/sign-in`
+   - File: app/(auth)/sign-in/page.jsx
+   - Purpose: User authentication
+   - Features:
+     * Clerk authentication integration
+     * Social login options
+     * Form validation
+     * Error handling
+
+2. `/sign-up`
+   - File: app/(auth)/sign-up/page.jsx
+   - Purpose: New user registration
+   - Features:
+     * User registration form
+     * Email verification
+     * Password requirements
+     * Terms acceptance
+
+### API Routes
+
+1. `/api/interview`
+   - Purpose: Interview-related API endpoints
+   - Features:
+     * Question generation
+     * Answer validation
+     * Score calculation
+     * Feedback generation
+
+2. `/api/cover-letter`
+   - Purpose: Cover letter generation API
+   - Features:
+     * AI-powered content generation
+     * ATS optimization
+     * Format conversion
+     * Customization options
+
+### Database Models
+
+1. User Model
+   - Fields:
+     * id (UUID)
+     * clerkUserId (String, unique)
+     * email (String, unique)
+     * name (String)
+     * industry (String)
+     * experience (Int)
+     * skills (String[])
+     * bio (String)
+
+2. Assessment Model
+   - Fields:
+     * id (String)
+     * userId (String)
+     * quizScore (Float)
+     * questions (Json[])
+     * category (String)
+     * improvementTip (String)
+
+3. Resume Model
+   - Fields:
+     * id (String)
+     * userId (String)
+     * content (Text)
+     * atsScore (Float)
+     * feedback (String)
+
+4. CoverLetter Model
+   - Fields:
+     * id              String    @id @default(cuid())
+     * userId          String
+     * content         String    // Markdown content
+     * jobDescription  String?
+     * companyName     String    
+     * jobTitle        String    
+     * status          String    @default("draft")
+     * createdAt       DateTime  @default(now())
+     * updatedAt       DateTime  @updatedAt
+
+### Key Features
+
+1. Authentication
+   - Clerk integration for secure authentication
+   - Social login options
+   - Session management
+   - Protected routes
+
+2. AI Integration
+   - Google AI for content generation
+   - Interview question generation
+   - Cover letter optimization
+   - Performance analysis
+
+3. Database
+   - PostgreSQL with Prisma ORM
+   - Real-time data updates
+   - Efficient querying
+   - Data relationships
+
+4. UI/UX
+   - Responsive design
+   - Dark/Light mode
+   - Loading states
+   * Error handling
+   * Form validation
+
+### Environment Variables Required
+
+1. Database
+   - DATABASE_URL: PostgreSQL connection string
+
+2. Authentication
+   - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+   - CLERK_SECRET_KEY
+
+3. AI Services
+   - GOOGLE_AI_API_KEY
+
+### Development Setup
+
+1. Installation
+   ```bash
+   npm install
+   ```
+
+2. Environment Setup
+   - Create .env.local file
+   - Add required environment variables
+
+3. Database Setup
+   ```bash
+   npm run db:generate
+   npm run db:push
+   ```
+
+4. Development Server
+   ```bash
+   npm run dev
+   ```
+
+### Production Deployment
+
+1. Build
+   ```bash
+   npm run build
+   ```
+
+2. Start
+   ```bash
+   npm run start
+   ```
+
+### Additional Notes
+
+1. File Structure
+   - app/: Main application code
+   - components/: Reusable components
+   - lib/: Utility functions
+   - prisma/: Database schema
+   - public/: Static assets
+
+2. Best Practices
+   - Use TypeScript for type safety
+   - Follow Next.js 13+ conventions
+   - Implement proper error handling
+   - Maintain code documentation
+
+3. Performance Considerations
+   - Implement proper caching
+   - Optimize images
+   - Use proper loading states
+   - Implement error boundaries 
+
+
+
+
+   # SensAI Page Documentation
+
+## 1. Dashboard Page (/dashboard)
+Location: app/(main)/dashboard/page.jsx
+
+### Purpose
+The dashboard serves as the central hub for users to access all features and track their progress.
+
+### Key Features
+1. Progress Overview
+   - Overall completion status
+   - Recent activity timeline
+   - Performance metrics
+   - Skill development progress
+
+2. Quick Access Cards
+   - Interview preparation status
+   - Resume builder progress
+   - Cover letter generator
+   - Skills assessment results
+
+3. Analytics Section
+   - Interview performance trends
+   - Skill improvement metrics
+   - ATS score history
+   - Learning progress
+
+### Functions
+- getUserOnboardingStatus(): Checks if user has completed onboarding
+- getRecentActivity(): Fetches user's recent actions
+- getPerformanceMetrics(): Calculates overall performance
+- redirectToOnboarding(): Redirects new users to onboarding
+
+## 2. Onboarding Page (/onboarding)
+Location: app/(main)/onboarding/page.jsx
+
+### Purpose
+Guides new users through the initial setup process to personalize their experience.
+
+### Key Features
+1. Industry Selection
+   - Comprehensive industry list
+   - Sub-industry categorization
+   - Industry-specific insights
+   - Growth potential information
+
+2. Experience Assessment
+   - Years of experience input
+   - Current role selection
+   - Career goals setting
+   - Skill level assessment
+
+3. Skills Evaluation
+   - Technical skills assessment
+   - Soft skills evaluation
+   - Industry-specific skills
+   - Learning goals setting
+
+### Functions
+- saveUserProfile(): Saves user's profile information
+- validateIndustry(): Validates industry selection
+- assessSkills(): Evaluates user's skill level
+- generateInitialPlan(): Creates personalized learning plan
+
+## 3. Interview Preparation Page (/interview)
+Location: app/(main)/interview/page.jsx
+
+### Purpose
+Provides AI-powered interview preparation and practice sessions.
+
+### Key Features
+1. Mock Interviews
+   - Industry-specific questions
+   - Real-time feedback
+   - Performance scoring
+   - Improvement suggestions
+
+2. Question Bank
+   - Technical questions
+   - Behavioral questions
+   - Industry-specific scenarios
+   - Custom question creation
+
+3. Performance Analytics
+   - Answer quality assessment
+   - Response time tracking
+   - Confidence scoring
+   - Improvement tracking
+
+### Functions
+- generateQuestions(): Creates interview questions
+- evaluateResponse(): Analyzes user's answers
+- calculateScore(): Computes performance metrics
+- generateFeedback(): Provides improvement suggestions
+
+## 4. AI Cover Letter Generator (/ai-cover-letter)
+Location: app/(main)/ai-cover-letter/page.jsx
+
+### Purpose
+Helps users create optimized cover letters using AI technology.
+
+### Key Features
+1. Cover Letter Creation
+   - Job description analysis
+   - ATS optimization
+   - Customization options
+   - Format selection
+
+2. AI Enhancement
+   - Content improvement
+   - Keyword optimization
+   - Tone adjustment
+   - Grammar checking
+
+3. Management
+   - Save drafts
+   - Version history
+   - Export options
+   - Template library
+
+### Functions
+- analyzeJobDescription(): Processes job requirements
+- generateContent(): Creates cover letter content
+- optimizeForATS(): Improves ATS compatibility
+- saveDraft(): Stores cover letter versions
+
+## 5. Resume Builder (/resume)
+Location: app/(main)/resume/page.jsx
+
+### Purpose
+Assists users in creating professional, ATS-optimized resumes.
+
+### Key Features
+1. Resume Creation
+   - Professional templates
+   - Section management
+   - Content suggestions
+   - Format customization
+
+2. ATS Optimization
+   - Keyword analysis
+   - Format checking
+   - Score calculation
+   - Improvement suggestions
+
+3. Management
+   - Multiple versions
+   - Export options
+   - Update history
+   - Template switching
+
+### Functions
+- createResume(): Generates new resume
+- calculateATSScore(): Evaluates ATS compatibility
+- suggestImprovements(): Provides optimization tips
+- exportResume(): Handles different export formats
+
+## 6. Authentication Pages
+
+### Sign In (/sign-in)
+Location: app/(auth)/sign-in/page.jsx
+
+### Purpose
+Handles user authentication and login.
+
+### Key Features
+1. Login Options
+   - Email/password login
+   - Social login
+   - Remember me option
+   - Password recovery
+
+2. Security
+   - Two-factor authentication
+   - Session management
+   - Security checks
+   - Login history
+
+### Functions
+- handleLogin(): Processes login attempts
+- validateCredentials(): Verifies user credentials
+- manageSession(): Handles user sessions
+- handleRecovery(): Manages password recovery
+
+### Sign Up (/sign-up)
+Location: app/(auth)/sign-up/page.jsx
+
+### Purpose
+Manages new user registration.
+
+### Key Features
+1. Registration Process
+   - Account creation
+   - Email verification
+   - Profile setup
+   - Terms acceptance
+
+2. Validation
+   - Email verification
+   - Password strength
+   - Duplicate checking
+   - Terms validation
+
+### Functions
+- createAccount(): Handles new account creation
+- verifyEmail(): Manages email verification
+- validatePassword(): Checks password strength
+- acceptTerms(): Processes terms acceptance
+
+## Common Features Across Pages
+
+### Navigation
+- Consistent header
+- Progress tracking
+- Quick access menu
+- Breadcrumb navigation
+
+### User Experience
+- Loading states
+- Error handling
+- Success messages
+- Responsive design
+
+### Data Management
+- Real-time updates
+- Data persistence
+- Cache management
+- State management
+
+### Security
+- Authentication checks
+- Route protection
+- Data encryption
+- Session management

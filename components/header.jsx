@@ -29,7 +29,7 @@ export default async function Header() {
   <div className="flex items-center gap-2 hover:opacity-90 transition-opacity duration-200">
   <div className="max-w-[250px] w-full">
   <Image
-    src="/logo1.png"
+    src="/res.png"
     alt="Sensai Logo"
     width={600}
     height={200}

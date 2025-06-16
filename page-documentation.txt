@@ -1,0 +1,234 @@
+# SensAI Page Documentation
+
+## 1. Dashboard Page (/dashboard)
+Location: app/(main)/dashboard/page.jsx
+
+### Purpose
+The dashboard serves as the central hub for users to access all features and track their progress.
+
+### Key Features
+1. Progress Overview
+   - Overall completion status
+   - Recent activity timeline
+   - Performance metrics
+   - Skill development progress
+
+2. Quick Access Cards
+   - Interview preparation status
+   - Resume builder progress
+   - Cover letter generator
+   - Skills assessment results
+
+3. Analytics Section
+   - Interview performance trends
+   - Skill improvement metrics
+   - ATS score history
+   - Learning progress
+
+### Functions
+- getUserOnboardingStatus(): Checks if user has completed onboarding
+- getRecentActivity(): Fetches user's recent actions
+- getPerformanceMetrics(): Calculates overall performance
+- redirectToOnboarding(): Redirects new users to onboarding
+
+## 2. Onboarding Page (/onboarding)
+Location: app/(main)/onboarding/page.jsx
+
+### Purpose
+Guides new users through the initial setup process to personalize their experience.
+
+### Key Features
+1. Industry Selection
+   - Comprehensive industry list
+   - Sub-industry categorization
+   - Industry-specific insights
+   - Growth potential information
+
+2. Experience Assessment
+   - Years of experience input
+   - Current role selection
+   - Career goals setting
+   - Skill level assessment
+
+3. Skills Evaluation
+   - Technical skills assessment
+   - Soft skills evaluation
+   - Industry-specific skills
+   - Learning goals setting
+
+### Functions
+- saveUserProfile(): Saves user's profile information
+- validateIndustry(): Validates industry selection
+- assessSkills(): Evaluates user's skill level
+- generateInitialPlan(): Creates personalized learning plan
+
+## 3. Interview Preparation Page (/interview)
+Location: app/(main)/interview/page.jsx
+
+### Purpose
+Provides AI-powered interview preparation and practice sessions.
+
+### Key Features
+1. Mock Interviews
+   - Industry-specific questions
+   - Real-time feedback
+   - Performance scoring
+   - Improvement suggestions
+
+2. Question Bank
+   - Technical questions
+   - Behavioral questions
+   - Industry-specific scenarios
+   - Custom question creation
+
+3. Performance Analytics
+   - Answer quality assessment
+   - Response time tracking
+   - Confidence scoring
+   - Improvement tracking
+
+### Functions
+- generateQuestions(): Creates interview questions
+- evaluateResponse(): Analyzes user's answers
+- calculateScore(): Computes performance metrics
+- generateFeedback(): Provides improvement suggestions
+
+## 4. AI Cover Letter Generator (/ai-cover-letter)
+Location: app/(main)/ai-cover-letter/page.jsx
+
+### Purpose
+Helps users create optimized cover letters using AI technology.
+
+### Key Features
+1. Cover Letter Creation
+   - Job description analysis
+   - ATS optimization
+   - Customization options
+   - Format selection
+
+2. AI Enhancement
+   - Content improvement
+   - Keyword optimization
+   - Tone adjustment
+   - Grammar checking
+
+3. Management
+   - Save drafts
+   - Version history
+   - Export options
+   - Template library
+
+### Functions
+- analyzeJobDescription(): Processes job requirements
+- generateContent(): Creates cover letter content
+- optimizeForATS(): Improves ATS compatibility
+- saveDraft(): Stores cover letter versions
+
+## 5. Resume Builder (/resume)
+Location: app/(main)/resume/page.jsx
+
+### Purpose
+Assists users in creating professional, ATS-optimized resumes.
+
+### Key Features
+1. Resume Creation
+   - Professional templates
+   - Section management
+   - Content suggestions
+   - Format customization
+
+2. ATS Optimization
+   - Keyword analysis
+   - Format checking
+   - Score calculation
+   - Improvement suggestions
+
+3. Management
+   - Multiple versions
+   - Export options
+   - Update history
+   - Template switching
+
+### Functions
+- createResume(): Generates new resume
+- calculateATSScore(): Evaluates ATS compatibility
+- suggestImprovements(): Provides optimization tips
+- exportResume(): Handles different export formats
+
+## 6. Authentication Pages
+
+### Sign In (/sign-in)
+Location: app/(auth)/sign-in/page.jsx
+
+### Purpose
+Handles user authentication and login.
+
+### Key Features
+1. Login Options
+   - Email/password login
+   - Social login
+   - Remember me option
+   - Password recovery
+
+2. Security
+   - Two-factor authentication
+   - Session management
+   - Security checks
+   - Login history
+
+### Functions
+- handleLogin(): Processes login attempts
+- validateCredentials(): Verifies user credentials
+- manageSession(): Handles user sessions
+- handleRecovery(): Manages password recovery
+
+### Sign Up (/sign-up)
+Location: app/(auth)/sign-up/page.jsx
+
+### Purpose
+Manages new user registration.
+
+### Key Features
+1. Registration Process
+   - Account creation
+   - Email verification
+   - Profile setup
+   - Terms acceptance
+
+2. Validation
+   - Email verification
+   - Password strength
+   - Duplicate checking
+   - Terms validation
+
+### Functions
+- createAccount(): Handles new account creation
+- verifyEmail(): Manages email verification
+- validatePassword(): Checks password strength
+- acceptTerms(): Processes terms acceptance
+
+## Common Features Across Pages
+
+### Navigation
+- Consistent header
+- Progress tracking
+- Quick access menu
+- Breadcrumb navigation
+
+### User Experience
+- Loading states
+- Error handling
+- Success messages
+- Responsive design
+
+### Data Management
+- Real-time updates
+- Data persistence
+- Cache management
+- State management
+
+### Security
+- Authentication checks
+- Route protection
+- Data encryption
+- Session management 

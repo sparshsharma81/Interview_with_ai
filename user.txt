@@ -12,6 +12,7 @@
      * Features showcase
      * Call-to-action buttons
      * Responsive design for all devices
+     
 
 2. `/dashboard`
    - File: app/(main)/dashboard/page.jsx
@@ -460,3 +461,317 @@ Manages new user registration.
 - Route protection
 - Data encryption
 - Session management
+
+# Detailed Explanation of Landing Page Code (app/page.js)
+
+## Imports Section
+```javascript
+import React from "react";
+// React is the core library for building user interfaces. This import is required for any React component.
+
+import Link from "next/link";
+// Next.js Link component enables client-side navigation between pages without full page reloads.
+// It's more performant than regular <a> tags and provides automatic code-splitting.
+
+import { Button } from "@/components/ui/button";
+// Custom Button component from our UI library. The @ symbol is an alias for the root directory.
+// This component likely includes pre-styled button variants and animations.
+
+import { Card, CardContent } from "@/components/ui/card";
+// Card components for creating card-based layouts. CardContent is a subcomponent for the card's content area.
+// These are likely styled components with consistent design patterns.
+
+import {
+  ArrowRight,
+  Trophy,
+  Target,
+  Sparkles,
+  CheckCircle2,
+} from "lucide-react";
+// Icons from Lucide React library, a popular icon set.
+// - ArrowRight: Used for navigation arrows
+// - Trophy: Used for achievements/features
+// - Target: Used for goals/targets
+// - Sparkles: Used for special features
+// - CheckCircle2: Used for completed items
+
+import HeroSection from "@/components/hero";
+// Custom HeroSection component that likely contains the main banner section of the page.
+// This is a separate component for better code organization.
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+// Accordion components for creating expandable/collapsible sections (used in FAQ).
+// - Accordion: The main wrapper component
+// - AccordionContent: The content that shows/hides
+// - AccordionItem: Individual accordion section
+// - AccordionTrigger: The clickable header that toggles the content
+
+import Image from "next/image";
+// Next.js Image component for optimized image loading with automatic:
+// - Image optimization
+// - Lazy loading
+// - Responsive sizing
+// - WebP format conversion
+
+import { features } from "@/data/features";
+// Data array containing feature information (title, description, icon)
+// Located in the data directory for separation of concerns
+
+import { testimonial } from "@/data/testimonial";
+// Data array containing user testimonials (author, role, company, quote, image)
+// Used in the testimonials section
+
+import { faqs } from "@/data/faqs";
+// Data array containing frequently asked questions and answers
+// Used in the FAQ accordion section
+
+import { howItWorks } from "@/data/howItWorks";
+// Data array containing steps for how the platform works
+// Used in the "How It Works" section
+
+## Main Component
+```javascript
+export default function LandingPage() {
+// Main landing page component that renders all sections
+// 'export default' makes this the main component of the page.js file
+```
+
+## Component Structure
+```javascript
+return (
+  <>
+    {/* Fragment wrapper to group multiple elements without adding extra DOM nodes */}
+    
+    <div className="grid-background"></div>
+    {/* Visual background element with grid pattern, likely styled in CSS */}
+
+    <HeroSection />
+    {/* Renders the hero section component imported above */}
+
+    {/* Features Section */}
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      {/* Responsive padding and background */}
+      <div className="container mx-auto px-4 md:px-6">
+        {/* Container with responsive padding and max-width */}
+        <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
+          {/* Section heading with specific styling */}
+          Powerful Features for Your Career Growth
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {/* Responsive grid layout that changes columns based on screen size */}
+          {features.map((feature, index) => (
+            // Maps through features array to create feature cards
+            <Card
+              key={index}
+              // Unique key for React list rendering
+              className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl hover:shadow-lg hover:scale-105 hover:border-primary transition-all duration-300 ease-in-out"
+              // Complex styling with hover effects and transitions
+            >
+              <CardContent className="pt-6 pb-6 text-center flex flex-col items-center">
+                {/* Card content with specific padding and layout */}
+                <div className="flex flex-col items-center justify-center space-y-2">
+                  {/* Flex container for vertical alignment */}
+                  {feature.icon}
+                  {/* Renders the icon from the feature data */}
+                  <h3 className="text-xl font-bold text-white">{feature.title}</h3>
+                  {/* Feature title with specific styling */}
+                  <p className="text-sm text-gray-400">{feature.description}</p>
+                  {/* Feature description with muted color */}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Stats Section */}
+    <section className="w-full py-12 md:py-24 bg-muted/50">
+      {/* Section with semi-transparent background */}
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+          {/* Responsive grid for statistics */}
+          {/* Each stat item follows the same structure */}
+          <div className="flex flex-col items-center justify-center space-y-2">
+            <h3 className="text-4xl font-bold hover:text-red-700">69+</h3>
+            {/* Stat number with hover effect */}
+            <p className="text-muted-foreground hover:text-pink-700">Industries Covered</p>
+            {/* Stat label with hover effect */}
+          </div>
+          {/* Similar structure repeated for other stats */}
+        </div>
+      </div>
+    </section>
+
+    {/* How It Works Section */}
+    <section className="w-full py-12 md:py-24 bg-background">
+      {/* Similar section structure with different content */}
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          {/* Centered content with max width */}
+          <h2 className="text-3xl font-bold mb-4">How It Works</h2>
+          <p className="text-muted-foreground">
+            Four simple steps to accelerate your career growth
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {/* Responsive grid for process steps */}
+          {howItWorks.map((item, index) => (
+            // Maps through howItWorks data to create process steps
+            <div
+              key={index}
+              className="flex flex-col items-center text-center space-y-4"
+            >
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                {/* Circular icon container */}
+                {item.icon}
+              </div>
+              <h3 className="font-semibold text-xl">{item.title}</h3>
+              <p className="text-muted-foreground">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Testimonials Section */}
+    <section className="w-full py-16 md:py-28 bg-muted/50">
+      {/* Section with semi-transparent background */}
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-4xl font-extrabold text-center mb-14 tracking-tight text-foreground">
+          What Our Users Say
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {/* Responsive grid for testimonials */}
+          {testimonial.map((testimonial, index) => (
+            // Maps through testimonials data to create testimonial cards
+            <Card
+              key={index}
+              className="bg-background border border-border shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-primary/40 hover:ring-2 hover:ring-primary/30"
+              // Card with hover effects and transitions
+            >
+              <CardContent className="p-6">
+                <div className="flex flex-col gap-5">
+                  {/* Testimonial content structure */}
+                  <div className="flex items-center gap-4">
+                    {/* Author information with image */}
+                    <div className="h-14 w-14 relative">
+                      <Image
+                        width={56}
+                        height={56}
+                        src={testimonial.image}
+                        alt={testimonial.author}
+                        className="rounded-full object-cover border-2 border-primary/30 shadow-sm"
+                        // Optimized image with specific styling
+                      />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg">{testimonial.author}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </p>
+                      <p className="text-sm text-primary">{testimonial.company}</p>
+                    </div>
+                  </div>
+
+                  <blockquote className="relative pl-6 text-muted-foreground italic leading-relaxed">
+                    {/* Styled quote with decorative elements */}
+                    <span className="absolute text-3xl text-primary left-0 top-0 -translate-y-1">
+                      &ldquo;
+                    </span>
+                    {testimonial.quote}
+                    <span className="absolute text-3xl text-primary right-2 bottom-0 translate-y-3">
+                      &rdquo;
+                    </span>
+                  </blockquote>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section className="w-full py-16 md:py-28 bg-background">
+      {/* Section with background color */}
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          {/* Centered content with max width */}
+          <h2 className="text-4xl font-extrabold tracking-tight mb-4 text-foreground">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Find clear answers to the most common queries about our platform.
+          </p>
+        </div>
+
+        <div className="max-w-2xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-5">
+            {/* Accordion component with spacing between items */}
+            {faqs.map((faq, index) => (
+              // Maps through FAQs data to create accordion items
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:bg-red-900 hover:shadow-md hover:ring-2 hover:ring-primary/30 hover:border-primary/40"
+                // Item with hover effects and transitions
+              >
+                <AccordionTrigger className="text-left px-5 py-4 text-lg font-medium transition-colors duration-200 rounded-t-xl hover:bg-muted/20">
+                  {/* Clickable trigger with hover effect */}
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-5 py-4 text-muted-foreground text-base bg-muted/5 rounded-b-xl">
+                  {/* Content area with specific styling */}
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA (Call to Action) Section */}
+    <section className="w-full relative overflow-hidden">
+      {/* Section with gradient background and overflow control */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] opacity-90 z-0" />
+      {/* Gradient overlay */}
+      <div className="relative z-10 max-w-5xl mx-auto py-28 px-6 flex flex-col items-center justify-center text-center rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl">
+        {/* Content container with glass effect */}
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-primary-foreground drop-shadow-md">
+          Ready to Accelerate Your Career?
+        </h2>
+
+        <p className="mt-4 max-w-xl text-primary-foreground/80 text-lg md:text-xl leading-relaxed">
+          Join thousands of ambitious professionals using AI-driven tools to unlock new career opportunities and elevate their growth.
+        </p>
+
+        <Link href="/dashboard" passHref>
+          {/* Link to dashboard page */}
+          <Button
+            size="lg"
+            variant="secondary"
+            className="mt-8 h-12 px-6 text-lg font-semibold rounded-full shadow-md transition-all duration-300 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/40 group"
+            // Button with hover effects and transitions
+          >
+            <span className="group-hover:translate-x-1 transition-transform duration-200 flex items-center">
+              {/* Text with hover animation */}
+              Start Your Journey Today
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:ml-3 transition-all" />
+              {/* Arrow icon with hover animation */}
+            </span>
+          </Button>
+        </Link>
+      </div>
+    </section>
+  </>
+);
+// End of component

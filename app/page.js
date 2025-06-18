@@ -1,7 +1,26 @@
-import React from "react";
-import Link from "next/link";
+import React from "react"; //react core library hai..ham uska use kar rahe hai...
+import Link from "next/link"; //nextjs ka link component enable krta hai client side navigation
+//baiscally ham iska use karke bina reload krke page ko navigate kr sakte hai...
+//iski perfomance achi hai normal anchor tag se.... 
+//link basically client side navigation k liye use hota hai alag alag pages k bich 
+//iska alternative ke anchhor tag hota hai..pr iska perfomance achi hai normal anchor tag se...
+
+
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+//ye button aur card basically ui components hai..
+//ye hamare components folder k ui k foler k andar hai..--- .jsx file me 
+//ye basically shadcn ui se import kre hue hai..
+//npx shadcn@latest add button
+//npx shadcn@latest add card
+//npx shadcn@latest add accordion
+//npx shadcn@latest add image
+//npx shadcn@latest add link
+//npx shadcn@latest add button
+///in these ways we have installed the components from shadcn ui..ye basically bane banahe components hote hai..
+
+
 import {
   ArrowRight,
   Trophy,
@@ -9,18 +28,65 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react";
+//aur ab ye hai svg icons hai lucid react librabry se import kkre hai..
+//normal icons hai ye..
+// - ArrowRight: Used for navigation arrows
+// - Trophy: Used for achievements/features
+// - Target: Used for goals/targets
+// - Sparkles: Used for special features
+// - CheckCircle2: Used for completed items
+
+
+
 import HeroSection from "@/components/hero";
+//ab ye hai hero section..commponents wale folder me mene hero.jsx wali file banahi hai..to mene ye waha se import kara hai..
+
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+//ab ye hai accordion component..components wale folder me mene accordion.jsx wali file hai..to mene ye waha se import kara hai..
+  //ye baiscally collapsable ui component hai..jaise toggle -- faq style toggle list hai isme...
+  //basically iska use show aur hide karne k liye hota hai...
+  // Accordion components for creating expandable/collapsible sections (used in FAQ).
+// - Accordion: The main wrapper component
+// - AccordionContent: The content that shows/hides
+// - AccordionItem: Individual accordion section
+// - AccordionTrigger: The clickable header that toggles the content
+
+
 import Image from "next/image";
+//ab ye hai image component..nextjs ka image component hai..
+//ye basically image ko load karta hai..
+//ye next js ka opitimized image component hai.. 
+//lazy loading , responsive sizing aur image optimization ko automatically handle krta hai..
+
+
 import { features } from "@/data/features";
+// Data array containing user testimonials (author, role, company, quote, image)
+// Used in the testimonials section
+
+
 import { testimonial } from "@/data/testimonial";
+// Data array containing frequently asked questions and answers
+// Used in the FAQ accordion section
+
 import { faqs } from "@/data/faqs";
+// Data array containing frequently asked questions and answers
+// Used in the FAQ accordion section
+
+
 import { howItWorks } from "@/data/howItWorks";
+// Data array containing how it works steps
+// Used in the How It Works section
+
+
+//ab ye charo basically custom js files banahi hai..usme data likha hai..to waha se data ko import kr rahe hai.....
+
+
 
 export default function LandingPage() {
   return (

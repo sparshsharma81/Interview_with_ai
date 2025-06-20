@@ -377,13 +377,13 @@ export default function LandingPage() {
       <section className="w-full relative overflow-hidden">
 
         {/* ye niche wala absolute hai..simply full width ko show krene k liye hoga... */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] opacity-90 z-0" />
+  <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-700 via-blue-700 to-teal-700 opacity-90 z-0 animate-gradient" style={{backgroundSize:'200% 200%'}} />
 
   {/* ye relative hai..simply full width ko show krene k liye hoga... */}
   <div className="relative z-10 max-w-5xl mx-auto py-28 px-6 flex flex-col items-center justify-center text-center rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl">
 
     {/* ye basically title hai joki ready to accelerate your career wala section show hoga... */}
-    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-primary-foreground drop-shadow-md">
+    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-fuchsia-500 via-blue-400 to-teal-400 bg-clip-text text-transparent drop-shadow-md animate-gradient">
       Ready to Accelerate Your Career?
     </h2>
 
@@ -396,7 +396,7 @@ export default function LandingPage() {
       <Button
         size="lg"
         variant="secondary"
-        className="mt-8 h-12 px-6 text-lg font-semibold rounded-full shadow-md transition-all duration-300 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/40 group"
+        className="mt-8 h-12 px-6 text-lg font-semibold rounded-full shadow-md transition-all duration-300 hover:shadow-fuchsia-400/30 hover:ring-2 hover:ring-fuchsia-400/40 group bg-gradient-to-r from-fuchsia-500 via-blue-400 to-teal-400 text-white border-none animate-gradient"
       >
         <span className="group-hover:translate-x-1 transition-transform duration-200 flex items-center">
           Start Your Journey Today 

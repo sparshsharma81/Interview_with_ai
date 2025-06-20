@@ -319,7 +319,7 @@ export default function LandingPage() {
 
 
       {/* FAQ Section */}
-      <section className="w-full py-16 md:py-28 bg-background">
+       <section className="w-full py-16 md:py-28 bg-background relative">
 {/* ye w-full width ko full show krega */}
 {/* ye py-16 md:py-28 padding ko screen size k hisab se change krege... */}
 
@@ -330,7 +330,7 @@ export default function LandingPage() {
     {/* ye text center hai joki text ko center me show krega... */}
     <div className="text-center max-w-2xl mx-auto mb-14">
 
-      <h2 className="text-4xl font-extrabold tracking-tight mb-4 text-foreground">
+      <h2 className="text-4xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-fuchsia-500 via-blue-400 to-teal-400 bg-clip-text text-transparent animate-gradient">
         Frequently Asked Questions
       </h2>
 
@@ -350,9 +350,9 @@ export default function LandingPage() {
           <AccordionItem
             key={index}
             value={`item-${index}`}
-            className="rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:bg-red-900 hover:shadow-md hover:ring-2 hover:ring-primary/30 hover:border-primary/40"
+            className="rounded-xl border border-border bg-gradient-to-br from-white/10 via-fuchsia-200/10 to-blue-200/10 shadow-sm transition-all duration-300 hover:bg-fuchsia-900/40 hover:shadow-md hover:ring-2 hover:ring-fuchsia-400/30 hover:border-fuchsia-400/40"
           >
-            <AccordionTrigger className="text-left px-5 py-4 text-lg font-medium transition-colors duration-200 rounded-t-xl hover:bg-muted/20">
+            <AccordionTrigger className="text-left px-5 py-4 text-lg font-medium transition-colors duration-200 rounded-t-xl hover:bg-fuchsia-900/20 bg-gradient-to-r from-fuchsia-400/10 via-blue-400/10 to-teal-400/10">
               {faq.question}
             </AccordionTrigger>
             {/* ye accordionContent ye sab shadcn ui k componet hai.. ..joki hamare components wale folder me ui wale folder me hai.. */}

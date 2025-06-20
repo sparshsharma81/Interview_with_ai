@@ -193,7 +193,8 @@ export default function LandingPage() {
 
 
       {/* How It Works Section */}
-      <section className="w-full py-12 md:py-24 bg-background">
+   {/* How It Works Section */}
+      <section className="w-full py-12 md:py-24 bg-background relative">
 
         {/* ye basically container hai jisme how it works wala section show karege... */}
         <div className="container mx-auto px-4 md:px-6">
@@ -202,7 +203,7 @@ export default function LandingPage() {
           <div className="text-center max-w-3xl mx-auto mb-12">
 
             {/* ye basically title hai jisme how it works wala section show hoga... */}
-            <h2 className="text-3xl font-bold mb-4">How It Works</h2>
+            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-fuchsia-500 via-blue-400 to-teal-400 bg-clip-text text-transparent animate-gradient">How It Works</h2>
             <p className="text-muted-foreground">
               Four simple steps to accelerate your career growth
             </p>
@@ -218,13 +219,13 @@ export default function LandingPage() {
                 className="flex flex-col items-center text-center space-y-4"
               >
                 {/* ye basically icon hai jisme how it works wala section show hoga... */}
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-fuchsia-400 via-blue-400 to-teal-400 flex items-center justify-center animate-gradient-slow">
                   {item.icon}
                 </div>
 
                 {/* ye basically title hai jisme how it works wala section show hoga... */}
-                <h3 className="font-semibold text-xl">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+                <h3 className="font-semibold text-xl bg-gradient-to-r from-fuchsia-400 via-blue-400 to-teal-400 bg-clip-text text-transparent animate-gradient">{item.title}</h3>
+                <p className="text-muted-foreground group-hover:text-fuchsia-200 transition-colors duration-300">{item.description}</p>
               </div>
             ))}
           </div>
